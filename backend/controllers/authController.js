@@ -43,11 +43,11 @@ const signup = async (req, res, next) => {
     if (user) {
       // real OTP Email Sending
 
-      // await sendEmail(
-      //   email,
-      //   "Verify your RentEase Account",
-      //   `Your RentEase verification OTP is: ${otp}`,
-      // );
+      await sendEmail(
+        email,
+        "Verify your RentEase Account",
+        `Your RentEase verification OTP is: ${otp}`,
+      );
       res.status(201).json({
         success: true,
         message: "Registration successful. OTP sent to email.",

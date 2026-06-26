@@ -10,6 +10,18 @@ const sendEmail = async (to, subject, text) => {
       },
     });
 
+    // await transporter.sendMail({
+    //   from: `"RentEase" <${process.env.EMAIL_USER}>`,
+    //   to,
+    //   subject,
+    //   text,
+    // });
+
+    // console.log(`Email sent successfully to ${to}`);
+
+    console.log("EMAIL_USER =", process.env.EMAIL_USER);
+    console.log("Before sending email");
+
     await transporter.sendMail({
       from: `"RentEase" <${process.env.EMAIL_USER}>`,
       to,
@@ -17,6 +29,7 @@ const sendEmail = async (to, subject, text) => {
       text,
     });
 
+    console.log("After sending email");
     console.log(`Email sent successfully to ${to}`);
   } catch (error) {
     console.error("Email Error:", error);
